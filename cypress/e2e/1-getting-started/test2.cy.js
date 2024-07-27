@@ -1,26 +1,4 @@
-// before(()=>{
-//     cy.visit('https://rahulshettyacademy.com/')
 
-// })
-
-
-// // it('verify if as a admin or manager user  if I can add a customer',()=>{
-//   //  cy.get('cssSelector')
-
-// // })
-
-// it('test1',()=>{
-//     cy.get('img[src="assets/images/rs_logo.png"]:visible').should('be.visible')
-//     cy.contains('Learn Earn & Shine').should('be.visible')
-//     cy.get('.text-left').should('contain',"Learn Earn & Shine" )
-//     cy.get('li').should('contain','contact@rahulshettyacademy.com').and ('be.visible')
-
-
-
-
-
-
-// })
 
 describe('Test google', function () {
 
@@ -59,7 +37,7 @@ cy.fixture('example.json').then((data)=>{
 })
 cy.get('#flash').should('be.visible').contains('Your password is invalid!')
 
-// cy.go('back')
+// cy.go('back')p
 // cy.get('.navbar-brand').should('be.visible').click()
 // cy.get('[href="/hovers"]').scrollIntoView().should('be.visible').debug();
 // cy.get('.figure').eq(1).trigger('mousehover')
