@@ -33,9 +33,12 @@ cy.get('#input-number').should('be.empty')
 cy.go('back')
 cy.get('[href="/login"]').click()
 cy.fixture('example.json').then((data)=>{
-    cy.log(data.name, data.password)
+    cy.login(data.name, data.password)
 })
 cy.get('#flash').should('be.visible').contains('Your password is invalid!')
+cy.get('.navbar-brand').should('be.visible').click()
+
+
 
 // cy.go('back')p
 // cy.get('.navbar-brand').should('be.visible').click()
