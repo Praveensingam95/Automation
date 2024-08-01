@@ -48,3 +48,35 @@ describe('Test page', function () {
 
 
 })
+
+
+
+
+
+
+
+// describe('Test page', function () {
+
+//   before('',()=>{
+//     cy.clearAllSessionStorage();
+//   })
+//   beforeEach('visit website',()=>{
+//     cy.visit('https://practice.expandtesting.com/')
+//   })
+
+//   afterEach('logout',()=>{
+//     //cy.logout();
+//   })
+
+//   after(function () {
+    
+//    // cy.checkUserLogin();
+//   });
+
+//   it ('',function(){
+//       //cy.visit('https://practice.expandtesting.com/')
+//     // verify login functionality
+
+//       cy.get('.navbar-brand').should('be.visible').click()
+//       cy.get('[href="/form-val
+// qkm-axor-uvo
