@@ -5,12 +5,13 @@ describe('Hooks concepts', function(){
   })
 
     beforeEach('Pracise page',()=>{
+      cy.intercept('POST','https://www.google-analytics.com/g/collect?*').as('collection') 
 
         cy.visit('https://practice.expandtesting.com/')
     
             cy.get('[href="/login"]').click()
             cy.fixture('example.json').then((data)=>{
-           cy.login(data.name, data.password)  
+           cy.login(data.name, data.password).click() 
 
 })
 })
@@ -22,19 +23,20 @@ cy.get('[href="https://expandtesting.com/formations/"]').should('be.visible')
 
 })
 
-// after('all',()=>{
+after('all',()=>{
 
-//     cy.get('[href="https://expandtesting.com/formations/"]').should('be.visible').click()
-//     cy.get('.navbar-brand').contains('Expand Testing')
-
-
-// })
+    cy.get('[href="https://expandtesting.com/formations/"]').should('be.visible').click()
+   
 
 
-it('Contact test',()=>{
+})
+
+
+it.only('Contact test',()=>{
 
     cy.get('[href="/contact"]').should('be.visible').click()
-    cy.get('.container').contains("Contact page for Automation Testing Practice")
+    cy.wait('@collection');
+    cy.get('.container').contains("Contact page for Automation Testing Practice").debug()
 
       })
 

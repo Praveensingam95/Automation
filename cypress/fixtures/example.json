@@ -12,8 +12,10 @@
    "Gender2": "Female",
    "Age": "45",
    "height":"150",
-   "weight": "80"
+   "weight": "80",
    
-
+   "monthnumber": "6",
+    "datenumber":"25",
+  "year": "2027"
 
 }

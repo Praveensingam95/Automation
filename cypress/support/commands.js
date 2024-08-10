@@ -24,6 +24,8 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
+/// <reference types='cypress' />
+
 Cypress.Commands.add('login',(userName, password)=>{
     cy.get('[type="text"]').should('have.attr','type','text').clear().type(userName)
     cy.get('[type="password"]').should('be.empty').type(password)
@@ -45,8 +47,15 @@ Cypress.Commands.add('BMI',(gender,age,weight,height)=>{
             cy.get('#height').clear().type(height)
             cy.get('#weight').clear().type(weight)
 
+cypress.Commands.add('calender',(year,monthNumber,date)=>{
+
+   
+    cy.contains("button",year).click(year);
+    cy.get(".react-calendar__year-view__months__month").eq(Number(monthNumber)-1).click();
+    cy.contains("abbr").select(date).click();
 
 
+})
 
 
 

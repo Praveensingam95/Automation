@@ -40,5 +40,11 @@ cy.log(logoelement.text())
 //cy.log(logo.text())
 
 
+
+
 })
+
+
+
+
 })
