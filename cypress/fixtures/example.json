@@ -1,6 +1,21 @@
 {
   "name": "practice",
-  "password":"SuperSecretP",
+  "password":"SuperSecretPassword!",
   "email": "hello@cypress.io",
-  "body": "Fixtures are a great way to mock data for responses to routes"
+  "body": "Fixtures are a great way to mock data for responses to routes",
+  "CName":"Praven",
+  "mobile": "9154202669",
+  "date":"2024-05-25",
+
+
+   "Gender": "Male",
+   "Gender2": "Female",
+   "Age": "45",
+   "height":"150",
+   "weight": "80",
+   
+   "monthnumber": "6",
+    "datenumber":"25",
+  "year": "2027"
+
 }
