@@ -7,14 +7,19 @@ describe('Test page', function () {
         cy.visit('https://practice.expandtesting.com/')
     })
 
-    it('practice', function () {
+    it.only('practice', function () {
 
-        cy.get('.navbar-brand').should('be.visible').click()
-        cy.get('[href="/form-validation"]').should('be.visible').click()
-        cy.fixture('./example.json').then((data) => {
-
-            cy.validation(data.CName, data.mobile, data.date)
+        cy.wait(10000)
+        cy.request('GET','/socket.io/?*').then((res)=>{
+            expect(res.status).to.eq(200)
         })
+    
+        // cy.get('.navbar-brand').should('be.visible').click()
+        // cy.get('[href="/form-validation"]').should('be.visible').click()
+        // cy.fixture('./example.json').then((data) => {
+
+        //     cy.validation(data.CName, data.mobile, data.date)
+    
 
         // cy.get('[type="text"]').should('have.attr','type','text').clear().type("Praveen")
         // cy.get('[type="tel"]').should('be.empty').type("9154202669")
@@ -46,6 +51,8 @@ describe('Test page', function () {
         cy.get('.btn-primary').should('be.visible').click()
         cy.fixture('./profile.json').then((data) => {
             cy.login(data.email, data.password)
+            cy.request('GET','/api/course').as('testApi');
+            cy.wait('testApi')
 
         })
         cy.get('.toast-body').should('be.visible').contains('Incorrect email address or password')
@@ -78,10 +85,9 @@ describe('Test page', function () {
 
     })
 
+});
 
 
-
-})
 
 
 
