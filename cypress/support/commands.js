@@ -26,6 +26,8 @@
 
 /// <reference types='cypress' />
 
+
+
 Cypress.Commands.add('login', (userName, password) => {
     cy.get('[type="text"]').should('have.attr', 'type', 'text').clear().type(userName)
     cy.get('[type="password"]').should('be.empty').type(password)
@@ -73,6 +75,17 @@ Cypress.Commands.add('lascanlogin', (userName, password) => {
     cy.get('input#txtLoginUserName').type(userName)
         cy.get('input#txtLoginPassword').type(password)
         cy.get('[value="Sign In"]').click()
+
+
+})
+
+Cypress.Commands.add('APILogin',()=>{
+cy.request('POST','https://rahulshettyacademy.com/api/ecom/auth/login',
+    {"userEmail":"Psingam1995@gmail.com","userPassword":"Praveen@1995"}).then(function(response)
+    {
+        expect(response.status).to.eq(200)
+        Cypress.env('token',response.body.token);
+    })
 
 
 })

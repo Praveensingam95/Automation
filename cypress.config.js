@@ -1,40 +1,46 @@
 const { defineConfig } = require("cypress");
-async function setupNodeEvents(on, config) {
-  // This is required for the preprocessor to be able to generate JSON reports after each run, and more,
-  await addCucumberPreprocessorPlugin(on, config);
+// const preprocessor = require("@badeball/cypress-cucumber-preprocessor");
+// const browserify = require("@cypress/browserify-preprocessor");
 
-  on("file:preprocessor", preprocessor(config));
+// async function setupNodeEvents(on, config) {
+//   // // This is required for the preprocessor to be able to generate JSON reports after each run, and more,
+//   // await preprocessor.addCucumberPreprocessorPlugin(on,config);
 
-  // Make sure to return the config object as it might have been modified by the plugin.
-  return config;
-}
+//   // on("file:preprocessor", browserify.default(config));
+
+//   // // Make sure to return the config object as it might have been modified by the plugin.
+  
+//   return config;
+// }
+
+
 
 module.exports = defineConfig({
-  projectId: '43ob9s',
+  defaultCommandTimeout:6000,
+
   reporter: 'cypress-mochawesome-reporter',
+
+
+  env: {
+    url: 'visit page'
+  },
+
+  retries: {
+    runMode: 1,
+
+  },
+  projectId: '43ob9s',
   projectId: "c7t3sk",
-
-  env:{
-    url:''
-  },
-
-retries:{
-  runMode:0,
-
-},
   e2e: {
-    //supportFile: 'cypress./support/e2e.js',
     setupNodeEvents(on, config) {
-
-      // implement node event listeners here
-      require('cypress-mochawesome-reporter/plugin')(on);
-
+      require('cypress-mochawesome-reporter/plugin')(on)
     },
-    specPattern: 'cypress/integration/example/*.js'
+
+    specPattern: 'cypress/integration/example'
   },
-  
+
   viewportHeight: 800,
-viewportWidth: 1200,
+  viewportWidth: 1200,
 });
 
 

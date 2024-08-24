@@ -1,7 +1,5 @@
 
-import { inc } from "semver"
 import Homepage from "../pageobjects/lascananHomepage"
-import { includes } from "lodash"
 
 const hompage = new Homepage()
 
@@ -32,12 +30,14 @@ describe('Lascana', () => {
     })
     it.only('Menubar', () => {
 
-        hompage.getMenubar().contains('Clothing').focus().screenshot()
+        
         hompage.getMenubar().contains('Best Sellers').focus()
         hompage.getMenubar().contains('Dresses').focus()
         hompage.getMenubar().contains('Swimwear').focus()
-       
-        hompage.getMenubar().contains('Clothing').focus().contains('Tops').click({force:true})
+        hompage.getMenubar().contains('Clothing').focus()
+      
+        hompage.gettop()
+        cy.pause()
         cy.wait(5000)
         cy.url().should('include', '/Tops')
         cy.get('div div  .img_container').each(($el,index,$list)=>{
