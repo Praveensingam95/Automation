@@ -1,8 +1,12 @@
 
+
 describe('My third test case',function(){
 
     beforeEach('Rshety website',function(){
 cy.visit('https://rahulshettyacademy.com/AutomationPractice/')
+  })
+ afterEach('clear seesion',function(){
+    cy.clearAllSessionStorage()
   })
 //check boxes    
 it("pratice checkbox",function(){
@@ -13,10 +17,10 @@ cy.get('[type="checkbox"]').check(['option2','option3'])
 //radio buttons
 cy.get('[value="radio1"]').check().should('be.checked')
 
-
 })
 
 //static Dropdown
+
 it("pratice dropdown",function(){
     cy.get('select').select('Option2').should('have.value','option2')
 
@@ -55,5 +59,3 @@ it("pratice Hide&show",function(){
 
 
 
-
-})

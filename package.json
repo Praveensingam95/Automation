@@ -5,7 +5,13 @@
   "scripts": {
     "test": "npx cypress run",
     "headedTest": "npx cypress run --headed",
-    "chromeTest": "npx run test --browser chrome"
+    "chromeTest": "npx run test --browser chrome --env",
+    "test:dev": "npx cypress run --env configFile=dev",
+    "test:staging": "npx cypress run --env configFile=staging",
+    "test:prod": "npx cypress run --env configFile=prod",
+    "chromeTest:dev": "npx cypress run --browser chrome --env configFile=dev",
+    "chromeTest:staging": "npx cypress run --browser chrome --env configFile=staging",
+    "chromeTest:prod": "npx cypress run --browser chrome --env configFile=prod"
   },
   "author": "",
   "license": "ISC",
@@ -68,6 +74,7 @@
     "concat-map": "^0.0.1",
     "core-util-is": "^1.0.2",
     "cross-spawn": "^7.0.3",
+    "cypress-xpath": "^2.0.1",
     "dashdash": "^1.14.1",
     "dateformat": "^4.6.3",
     "dayjs": "^1.11.12",
@@ -252,9 +259,5 @@
     "yargs-unparser": "^2.0.0",
     "yauzl": "^2.10.0",
     "yocto-queue": "^0.1.0"
-  
   }
- 
-
-  
 }

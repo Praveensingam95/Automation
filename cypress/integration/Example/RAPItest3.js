@@ -9,6 +9,7 @@ describe('test with API call', function () {
             "isbn": "BSGkh1222h",
             "aisle": "23122002",
             "author": "Praveen"
+            //Add headers - content-type & Autorimzation.
         }).then(function (response) {
         expect(response.body).to.have.property('Msg', "successfully added")
         expect(response.status).to.eq(200)
