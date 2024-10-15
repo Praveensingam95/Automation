@@ -6,7 +6,7 @@
     "test": "npx cypress run",
     "headedTest": "npx cypress run --headed",
     "chromeTest": "npx run test --browser chrome --env",
-    "test:dev": "npx cypress run --env configFile=dev",
+    "test:dev": "npx cypress run --env --parallel configFile=dev",
     "test:staging": "npx cypress run --env configFile=staging",
     "test:prod": "npx cypress run --env configFile=prod",
     "chromeTest:dev": "npx cypress run --browser chrome --env configFile=dev",

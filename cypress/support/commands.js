@@ -65,27 +65,26 @@ Cypress.Commands.add('calenderPopUp', (year, month, datenumber) => {
 
 Cypress.Commands.add('selectprod', (productname) => {
 
-cy.get('h4.card-title').each(($el, index, $list) => {
-    if ($el.text().includes(productname)) {
-        cy.get('button.btn.btn-info').eq(index).click()
-    }
-})
+    cy.get('h4.card-title').each(($el, index, $list) => {
+        if ($el.text().includes(productname)) {
+            cy.get('button.btn.btn-info').eq(index).click()
+        }
+    })
 })
 Cypress.Commands.add('lascanlogin', (userName, password) => {
     cy.get('input#txtLoginUserName').type(userName)
-        cy.get('input#txtLoginPassword').type(password)
-        cy.get('[value="Sign In"]').click()
+    cy.get('input#txtLoginPassword').type(password)
+    cy.get('[value="Sign In"]').click()
 
 
 })
 
-Cypress.Commands.add('APILogin',()=>{
-cy.request('POST','https://rahulshettyacademy.com/api/ecom/auth/login',
-    {"userEmail":"Psingam1995@gmail.com","userPassword":"Praveen@1995"}).then(function(response)
-    {
-        expect(response.status).to.eq(200)
-        Cypress.env('token',response.body.token);
-    })
+Cypress.Commands.add('APIFLogin', () => {
+    cy.request('POST', 'https://rahulshettyacademy.com/api/ecom/auth/login',
+        { "userEmail": "Psingam1995@gmail.com", "userPassword": "Praveen@1995" }).then(function (response) {
+            expect(response.status).to.eq(200)
+            Cypress.env('token', response.body.token);
+        })
 
 
 })

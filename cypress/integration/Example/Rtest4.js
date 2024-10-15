@@ -27,6 +27,7 @@ describe('My third test case', function () {
         cy.origin('https://www.qaclickacademy.com/', () => {
 
             cy.get('#navbarSupportedContent').find('[href="about.html"]').click()
+            cy.wait(5000)
             cy.get('.mt-50 h2').should('contain', 'QAClick Academy')
 
         })
@@ -56,7 +57,7 @@ describe('My third test case', function () {
 
 //mouse over
 
-    it.only("MOusehover", function () {
+    it("MOusehover", function () {
         //cy.get('div.mouse-hover-content').invoke('show')
         cy.contains('Top').click({force:true})
         cy.url().should('include','top')

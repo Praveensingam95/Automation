@@ -25,6 +25,8 @@ module.exports = defineConfig({
     url: 'visit page'
   },
 
+
+  
   retries: {
     runMode: 1,
 
@@ -34,14 +36,20 @@ module.exports = defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
       require('cypress-mochawesome-reporter/plugin')(on)
+      const configFile = config.env.configFile || 'dev'; // Default to 'dev' if not specified
+
     },
 
-    specPattern: 'cypress/integration/example'
+    specPattern: 'cypress/integration/example/*.js'
+   
   },
 
   viewportHeight: 800,
   viewportWidth: 1200,
+  video:true,
+ 
 });
+
 
 
 
